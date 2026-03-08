@@ -800,7 +800,7 @@ function GratitudeSection() {
   );
 }
 
-// ─── 6. TWINS PEAK — 112.jpg + 116.JPG ──────────────────────────────────────
+// ─── 6. TWINS PEAK — 112.jpg + 116.jpg ──────────────────────────────────────
 function TwinsSection() {
   return (
     <div style={{ background: BG_DARK }}>
@@ -849,7 +849,7 @@ function TwinsSection() {
         </div>
       </StudioCurtain>
 
-      {/* 116.JPG — hai bé đứng + text */}
+      {/* 116.jpg — hai bé đứng + text */}
       <div
         className="grid grid-cols-1 md:grid-cols-2"
         style={{ background: BG_DARKER }}
@@ -867,7 +867,7 @@ function TwinsSection() {
             transition={{ duration: 1.3, ease: EASE_EXPO }}
           >
             <Image
-              src="/phuong/116.JPG"
+              src="/phuong/116.jpg"
               alt="Hai bé lớn lên"
               fill
               className="object-cover object-top"
@@ -1069,7 +1069,7 @@ function ScrollCascadeSection() {
       rotateY: 8,
     },
     {
-      src: "/phuong/116.JPG",
+      src: "/phuong/116.jpg",
       alt: "Hai bé đứng",
       startY: -170,
       endY: 120,
@@ -1970,7 +1970,7 @@ function ScrollGallery3D() {
       caption: "Hai thiên thần",
     },
     { src: "/phuong/113.jpg", alt: "Ông nội", caption: "Ông nội yêu" },
-    { src: "/phuong/116.JPG", alt: "Hai bé đứng", caption: "Lớn từng ngày" },
+    { src: "/phuong/116.jpg", alt: "Hai bé đứng", caption: "Lớn từng ngày" },
     { src: "/phuong/117.jpg", alt: "Bé hồng", caption: "Nụ cười" },
   ];
 
@@ -2254,7 +2254,7 @@ function ScrollOrbitSection() {
     },
     { src: "/phuong/113.jpg", alt: "Ông nội", w: 125, h: 165, zOffset: 40 },
     { src: "/phuong/114.jpg", alt: "Bé tập đi", w: 130, h: 172, zOffset: -30 },
-    { src: "/phuong/116.JPG", alt: "Hai bé đứng", w: 150, h: 200, zOffset: 50 },
+    { src: "/phuong/116.jpg", alt: "Hai bé đứng", w: 150, h: 200, zOffset: 50 },
     { src: "/phuong/117.jpg", alt: "Bé hồng", w: 125, h: 165, zOffset: -40 },
     { src: "/phuong/115.jpg", alt: "Bé mùa đông", w: 130, h: 172, zOffset: 30 },
   ];
