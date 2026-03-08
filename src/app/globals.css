@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  --wedding-primary: #c44a6e;
+  --wedding-accent: #c9a24a;
+  --wedding-bg: #fdf5f8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ===========================
+   WEDDING BACKGROUND
+   =========================== */
+.wedding-bg {
+  background: #150610;
+  min-height: 100vh;
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+
+@keyframes diskRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(3%, 1%); }
+  30% { transform: translate(-1%, 3%); }
+  40% { transform: translate(2%, -1%); }
+  50% { transform: translate(-3%, 2%); }
+  60% { transform: translate(1%, -2%); }
+  70% { transform: translate(-2%, 1%); }
+  80% { transform: translate(3%, -3%); }
+  90% { transform: translate(-1%, 2%); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ringPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(196, 74, 110, 0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(196, 74, 110, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 74, 110, 0); }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 74, 110, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(196, 74, 110, 0); }
+}
+
+/* ===========================
+   DISK PLAYER
+   =========================== */
+.disk-player {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 50;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.disk-player.playing .disk-inner {
+  animation: diskRotate 3s linear infinite;
+}
+
+.disk-inner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #333 20%, transparent 20%),
+    conic-gradient(
+      #1a1a1a 0deg, #2a2a2a 10deg, #1a1a1a 20deg, #2a2a2a 30deg,
+      #1a1a1a 40deg, #2a2a2a 50deg, #1a1a1a 60deg, #2a2a2a 70deg,
+      #1a1a1a 80deg, #2a2a2a 90deg, #1a1a1a 100deg, #2a2a2a 120deg,
+      #1a1a1a 140deg, #2a2a2a 160deg, #1a1a1a 180deg, #2a2a2a 200deg,
+      #1a1a1a 220deg, #2a2a2a 240deg, #1a1a1a 260deg, #2a2a2a 280deg,
+      #1a1a1a 300deg, #2a2a2a 320deg, #1a1a1a 340deg, #2a2a2a 360deg
+    );
+  position: relative;
+}
+
+.disk-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #555;
+  border: 2px solid #888;
+}
+
+/* ===========================
+   COMPONENTS
+   =========================== */
+
+/* Open button pulse */
+.open-btn {
+  animation: pulseBorder 2.2s ease-in-out infinite;
+}
+
+/* Photo frame */
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(196, 74, 110, 0.18);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Calendar day */
+.calendar-day {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  cursor: default;
+}
+
+/* Film grain overlay */
+.grain-overlay {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+}
+
+/* Ornament divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--wedding-accent, #c9a24a), transparent);
+}
+
+/* Paper texture */
+.paper-texture {
+  background-color: #150610;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeBlend in='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.25'/%3E%3C/svg%3E");
+}
+
+/* Countdown box — light theme */
+.countdown-box {
+  background: #fff;
+  border: 1.5px solid rgba(196, 74, 110, 0.25);
+  box-shadow: 0 6px 24px rgba(196, 74, 110, 0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* Portrait ring pulse */
+.portrait-ring {
+  animation: ringPulse 2s ease-out infinite;
+}
+
+/* Gold shimmer text */
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #c9a24a 0%,
+    #f0d080 40%,
+    #c9a24a 60%,
+    #f0d080 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Float animation for icons */
+.float-anim {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  /* Intro card */
+  .intro-two-col {
+    flex-direction: column;
+  }
+  .intro-left, .intro-right {
+    width: 100% !important;
+  }
+  .intro-right {
+    border-left: none !important;
+    border-top: 1px solid #f0e0e8;
+  }
+
+  /* Photo frame in intro — giới hạn chiều cao trên mobile */
+  .intro-left .photo-frame {
+    max-width: 100% !important;
+    max-height: 260px;
+    aspect-ratio: 1/1;
+  }
+
+  /* Calendar */
+  .calendar-day {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  /* Countdown boxes */
+  .countdown-box {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* Hero 8/3 text — đã dùng clamp nên ok */
+
+  /* Giảm grain animation trên mobile để tiết kiệm pin */
+  .grain-overlay {
+    opacity: 0.03;
+  }
+}
